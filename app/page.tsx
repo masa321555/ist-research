@@ -1,103 +1,157 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { useState } from 'react'
+import { Search, TrendingUp, Shield, Zap } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { useStore } from '@/store/useStore'
+import { useRouter } from 'next/navigation'
+
+export default function HomePage() {
+  const router = useRouter()
+  const { searchQuery, setSearchQuery, addToSearchHistory, searchHistory } = useStore()
+  const [inputValue, setInputValue] = useState('')
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (inputValue.trim()) {
+      const hashtag = inputValue.trim().replace(/^#/, '')
+      setSearchQuery(hashtag)
+      addToSearchHistory(hashtag)
+      router.push(`/search?q=${encodeURIComponent(hashtag)}`)
+    }
+  }
+
+  const handleQuickSearch = (tag: string) => {
+    setSearchQuery(tag)
+    addToSearchHistory(tag)
+    router.push(`/search?q=${encodeURIComponent(tag)}`)
+  }
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-bold text-gray-900 mb-4">
+              <span className="block">Instagram</span>
+              <span className="block">高エンゲージメント投稿分析ツール</span>
+            </h1>
+            <p className="text-xl text-gray-600">
+              ハッシュタグを入力して、人気投稿とインフルエンサーを発見しましょう
+            </p>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <Card className="mb-8">
+            <CardContent className="pt-6">
+              <form onSubmit={handleSearch} className="flex gap-4">
+                <Input
+                  type="text"
+                  placeholder="例: 東京カフェ、原宿ファッション..."
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  className="flex-1 text-lg h-12"
+                />
+                <Button type="submit" size="lg" className="px-8">
+                  <Search className="mr-2 h-5 w-5" />
+                  検索
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+
+          {searchHistory.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-sm font-medium text-gray-700 mb-3">最近の検索</h3>
+              <div className="flex flex-wrap gap-2">
+                {searchHistory.slice(0, 10).map((tag) => (
+                  <Button
+                    key={tag}
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleQuickSearch(tag)}
+                  >
+                    #{tag}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mb-8">
+            <h3 className="text-sm font-medium text-gray-700 mb-3">人気のハッシュタグ</h3>
+            <div className="flex flex-wrap gap-2">
+              {['東京カフェ', '渋谷グルメ', '原宿ファッション', '京都観光', '大阪グルメ'].map((tag) => (
+                <Button
+                  key={tag}
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => handleQuickSearch(tag)}
+                >
+                  #{tag}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <Card>
+              <CardHeader>
+                <TrendingUp className="h-8 w-8 text-blue-600 mb-2" />
+                <CardTitle className="text-lg">高エンゲージメント分析</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-xs leading-relaxed">
+                  いいね数とコメント数から算出したエンゲージメント率で、最も反響の高い投稿を特定します
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <Zap className="h-8 w-8 text-yellow-600 mb-2" />
+                <CardTitle className="text-lg">リアルタイムデータ</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-xs leading-relaxed">
+                  Instagram Graph APIを使用して、最新の投稿データと人気投稿をリアルタイムで取得します
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <Shield className="h-8 w-8 text-green-600 mb-2" />
+                <CardTitle className="text-lg">安全なデータ管理</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-xs leading-relaxed">
+                  ログイン不要で利用可能。APIトークンはサーバー側で安全に管理されています
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center text-sm text-gray-500">
+            <p>
+              本ツールはTBWA HAKUHODO社内向けツールです。Instagram Graph APIを使用しています。
+            </p>
+            <p className="mt-2">
+              API制限: 30ハッシュタグ/7日間 | データは1時間キャッシュされます
+            </p>
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <a href="/privacy" className="text-blue-600 hover:underline mx-2">
+                プライバシーポリシー
+              </a>
+              |
+              <a href="/terms" className="text-blue-600 hover:underline mx-2">
+                利用規約
+              </a>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
-  );
+  )
 }
