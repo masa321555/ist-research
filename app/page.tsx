@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 
 export default function HomePage() {
   const router = useRouter()
-  const { searchQuery, setSearchQuery, addToSearchHistory, searchHistory } = useStore()
+  const { setSearchQuery, addToSearchHistory, searchHistory } = useStore()
   const [inputValue, setInputValue] = useState('')
 
   const handleSearch = (e: React.FormEvent) => {

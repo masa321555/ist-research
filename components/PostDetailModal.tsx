@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image'
 import { Heart, MessageCircle, ExternalLink, Copy, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -23,7 +24,8 @@ export default function PostDetailModal({ post, isOpen, onClose }: PostDetailMod
     alert('リンクをコピーしました')
   }
 
-  const engagementRate = ((post.engagement_count / (post.like_count + 1)) * 100).toFixed(2)
+  // エンゲージメント率の計算（将来的に使用予定）
+  // const engagementRate = ((post.engagement_count / (post.like_count + 1)) * 100).toFixed(2)
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -44,10 +46,12 @@ export default function PostDetailModal({ post, isOpen, onClose }: PostDetailMod
         <div className="grid md:grid-cols-2 gap-6 mt-4">
           <div>
             <div className="aspect-square relative bg-gray-100 rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={post.media_url}
                 alt={post.caption}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               {post.media_type === 'VIDEO' && (
                 <div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
