@@ -107,7 +107,7 @@ export default function DataDeletionPage() {
                       </ul>
                       <div className="mt-3 p-3 bg-white rounded">
                         <p className="font-semibold text-sm">連絡先：</p>
-                        <p className="text-sm">Email: privacy@tbwahakuhodo.co.jp</p>
+                        <p className="text-sm">Email: inquiry.otoiawase@tbwahakuhodo.co.jp</p>
                       </div>
                     </div>
                   </CardContent>

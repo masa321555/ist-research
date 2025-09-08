@@ -176,8 +176,8 @@ export default function TermsPage() {
               <p>本規約に関するお問い合わせは、以下までご連絡ください：</p>
               <div className="mt-3 p-4 bg-gray-50 rounded">
                 <p className="font-semibold">TBWA HAKUHODO</p>
-                <p>Email: support@tbwahakuhodo.co.jp</p>
-                <p>住所: 〒105-0001 東京都港区虎ノ門</p>
+                <p>Email: inquiry.otoiawase@tbwahakuhodo.co.jp</p>
+                <p>住所: 〒105-0023　東京都港区芝浦1-13-10第3東運ビル</p>
               </div>
             </section>
           </div>

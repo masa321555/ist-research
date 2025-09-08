@@ -134,8 +134,8 @@ export default function PrivacyPage() {
               <p>本プライバシーポリシーやユーザー情報の取扱いに関するお問い合わせ、またはユーザー自身の情報の開示・訂正・削除・利用停止等のご請求は、以下までご連絡ください。</p>
               <div className="mt-3 p-4 bg-gray-50 rounded">
                 <p className="font-semibold">TBWA HAKUHODO</p>
-                <p>Email: privacy@tbwahakuhodo.co.jp</p>
-                <p>住所: 〒105-0001 東京都港区虎ノ門</p>
+                <p>Email: inquiry.otoiawase@tbwahakuhodo.co.jp</p>
+                <p>住所: 〒105-0023　東京都港区芝浦1-13-10第3東運ビル</p>
               </div>
             </section>
 
