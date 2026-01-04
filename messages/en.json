@@ -55,14 +55,14 @@
   "permissions": {
     "title": "Required Permissions",
     "description": "This application requests the following permissions to provide Instagram analytics features:",
-    "instagramBasic": "Instagram Business Basic",
-    "instagramBasicDesc": "Used to search and retrieve Instagram posts by hashtag",
+    "instagramBasic": "Instagram Basic",
+    "instagramBasicDesc": "Used to access Instagram Business account basic information and media",
     "pagesShowList": "Pages Show List",
     "pagesShowListDesc": "Used to list Facebook Pages connected to your account",
     "pagesReadEngagement": "Pages Read Engagement",
     "pagesReadEngagementDesc": "Used to read engagement metrics (likes, comments) on posts",
     "businessManagement": "Business Management",
-    "businessManagementDesc": "Used to access business account information",
+    "businessManagementDesc": "Used to access business account information for analytics",
     "backToHome": "Back to Home"
   },
   "auth": {
