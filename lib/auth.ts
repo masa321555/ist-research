@@ -4,16 +4,11 @@ const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID || process.env.NEXT_PUBLIC_F
 const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET;
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
-// Instagram Graph API scopes for business accounts
-// Note: These require the Instagram Graph API product to be added to your app
+// Basic Facebook Login scopes (no additional products required)
+// Instagram-specific scopes can be added after Instagram Graph API product is set up
 const SCOPES = [
   'public_profile',
-  'email',
-  'pages_show_list',
-  'pages_read_engagement',
-  'instagram_basic',
-  'instagram_manage_insights',
-  'business_management'
+  'email'
 ].join(',');
 
 export function getFacebookLoginUrl(locale: string = 'ja'): string {
