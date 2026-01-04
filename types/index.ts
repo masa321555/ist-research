@@ -41,3 +41,18 @@ export interface ApiUsageStatus {
     period: string
   }
 }
+
+export interface User {
+  id: string
+  name: string
+  email?: string
+  picture?: string
+  accessToken: string
+  instagramAccountId?: string
+}
+
+export interface AuthState {
+  user: User | null
+  isAuthenticated: boolean
+  isLoading: boolean
+}

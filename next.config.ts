@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const nextConfig: NextConfig = {
   images: {
@@ -18,8 +21,18 @@ const nextConfig: NextConfig = {
         hostname: 'instagram*.fbcdn.net',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'platform-lookaside.fbsbx.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.facebook.com',
+        pathname: '/**',
+      },
     ],
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

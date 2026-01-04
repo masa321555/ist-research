@@ -1,0 +1,74 @@
+{
+  "common": {
+    "appName": "Instagram High Engagement Post Analytics Tool",
+    "search": "Search",
+    "back": "Back",
+    "loading": "Loading...",
+    "posts": "posts",
+    "login": "Login with Facebook",
+    "logout": "Logout",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Instagram",
+    "subtitle": "High Engagement Post Analytics Tool",
+    "description": "Enter hashtags to discover popular posts and influencers",
+    "placeholder": "e.g., TokyoCafe, HarajukuFashion...",
+    "recentSearches": "Recent Searches",
+    "popularHashtags": "Popular Hashtags",
+    "featureEngagement": "High Engagement Analysis",
+    "featureEngagementDesc": "Identify the most engaging posts by calculating engagement rate from likes and comments",
+    "featureRealtime": "Real-time Data",
+    "featureRealtimeDesc": "Get the latest post data and popular posts in real-time using Instagram Graph API",
+    "featureSecurity": "Secure Data Management",
+    "featureSecurityDesc": "API tokens are securely managed on the server side",
+    "footer": "This tool is for TBWA HAKUHODO internal use. Uses Instagram Graph API.",
+    "apiLimit": "API Limit: 30 hashtags/7 days | Data is cached for 1 hour",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "loginRequired": "Please login with Facebook to use the search feature",
+    "permissionsInfo": "View Required Permissions"
+  },
+  "search": {
+    "sortBy": "Sort by",
+    "engagement": "Engagement",
+    "likes": "Likes",
+    "comments": "Comments",
+    "recent": "Recent",
+    "mediaType": "Media Type",
+    "all": "All",
+    "image": "Image",
+    "video": "Video",
+    "carousel": "Carousel",
+    "exportCsv": "Export CSV",
+    "fetchingData": "Fetching data..."
+  },
+  "postDetail": {
+    "title": "Post Details",
+    "likes": "Likes",
+    "comments": "Comments",
+    "totalEngagement": "Total Engagement",
+    "viewOnInstagram": "View on Instagram",
+    "copyLink": "Copy Link",
+    "linkCopied": "Link copied!"
+  },
+  "permissions": {
+    "title": "Required Permissions",
+    "description": "This application requests the following permissions to provide Instagram analytics features:",
+    "instagramBasic": "Instagram Business Basic",
+    "instagramBasicDesc": "Used to search and retrieve Instagram posts by hashtag",
+    "pagesShowList": "Pages Show List",
+    "pagesShowListDesc": "Used to list Facebook Pages connected to your account",
+    "pagesReadEngagement": "Pages Read Engagement",
+    "pagesReadEngagementDesc": "Used to read engagement metrics (likes, comments) on posts",
+    "businessManagement": "Business Management",
+    "businessManagementDesc": "Used to access business account information",
+    "backToHome": "Back to Home"
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "loginSuccess": "Successfully logged in!",
+    "loginError": "Login failed. Please try again.",
+    "logoutSuccess": "Successfully logged out."
+  }
+}

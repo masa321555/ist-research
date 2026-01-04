@@ -1,0 +1,74 @@
+{
+  "common": {
+    "appName": "Instagram高エンゲージメント投稿分析ツール",
+    "search": "検索",
+    "back": "戻る",
+    "loading": "読み込み中...",
+    "posts": "件の投稿",
+    "login": "Facebookでログイン",
+    "logout": "ログアウト",
+    "language": "言語"
+  },
+  "home": {
+    "title": "Instagram",
+    "subtitle": "高エンゲージメント投稿分析ツール",
+    "description": "ハッシュタグを入力して、人気投稿とインフルエンサーを発見しましょう",
+    "placeholder": "例: 東京カフェ、原宿ファッション...",
+    "recentSearches": "最近の検索",
+    "popularHashtags": "人気のハッシュタグ",
+    "featureEngagement": "高エンゲージメント分析",
+    "featureEngagementDesc": "いいね数とコメント数から算出したエンゲージメント率で、最も反響の高い投稿を特定します",
+    "featureRealtime": "リアルタイムデータ",
+    "featureRealtimeDesc": "Instagram Graph APIを使用して、最新の投稿データと人気投稿をリアルタイムで取得します",
+    "featureSecurity": "安全なデータ管理",
+    "featureSecurityDesc": "APIトークンはサーバー側で安全に管理されています",
+    "footer": "本ツールはTBWA HAKUHODO社内向けツールです。Instagram Graph APIを使用しています。",
+    "apiLimit": "API制限: 30ハッシュタグ/7日間 | データは1時間キャッシュされます",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsOfService": "利用規約",
+    "loginRequired": "検索機能を使用するにはFacebookでログインしてください",
+    "permissionsInfo": "必要な権限を確認"
+  },
+  "search": {
+    "sortBy": "並び替え",
+    "engagement": "エンゲージメント順",
+    "likes": "いいね順",
+    "comments": "コメント順",
+    "recent": "新着順",
+    "mediaType": "メディアタイプ",
+    "all": "すべて",
+    "image": "画像",
+    "video": "動画",
+    "carousel": "カルーセル",
+    "exportCsv": "CSV出力",
+    "fetchingData": "データを取得中..."
+  },
+  "postDetail": {
+    "title": "投稿詳細",
+    "likes": "いいね数",
+    "comments": "コメント数",
+    "totalEngagement": "総エンゲージメント",
+    "viewOnInstagram": "Instagramで見る",
+    "copyLink": "リンクをコピー",
+    "linkCopied": "リンクをコピーしました！"
+  },
+  "permissions": {
+    "title": "必要な権限",
+    "description": "このアプリケーションは、Instagram分析機能を提供するために以下の権限をリクエストします：",
+    "instagramBasic": "Instagram Business Basic",
+    "instagramBasicDesc": "ハッシュタグによるInstagram投稿の検索と取得に使用",
+    "pagesShowList": "Pages Show List",
+    "pagesShowListDesc": "アカウントに接続されているFacebookページの一覧表示に使用",
+    "pagesReadEngagement": "Pages Read Engagement",
+    "pagesReadEngagementDesc": "投稿のエンゲージメント指標（いいね、コメント）の読み取りに使用",
+    "businessManagement": "Business Management",
+    "businessManagementDesc": "ビジネスアカウント情報へのアクセスに使用",
+    "backToHome": "ホームに戻る"
+  },
+  "auth": {
+    "welcomeBack": "おかえりなさい",
+    "loginSuccess": "ログインに成功しました！",
+    "loginError": "ログインに失敗しました。もう一度お試しください。",
+    "logoutSuccess": "ログアウトしました。"
+  }
+}
